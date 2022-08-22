@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap");
+
+@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  src: url("https://fonts.gstatic.com/s/materialicons/v138/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2") format('woff2');
+}
+
+:root {
+  --font-main-family: "Roboto", sans-serif;
+  --font-xlarge: 2.5rem;
+  --font-large: 2rem;
+  --font-big: 1.25rem;
+  --font-normal: 1rem;
+  --font-small: 0.75rem;
+}
+
+h1 {
+  font-family: var(--font-main-family);
+  font-size: var(--font-xlarge);
+}

@@ -1,0 +1,22 @@
+.ui-icon-button {
+  font-family: "Material Icons";
+  color: lightgray;
+}
+
+.ui-icon-button:link,
+.ui-icon-button:active,
+.ui-icon-button:visited {
+  text-decoration: none;
+}
+
+.ui-icon-button--isDefault:hover {
+  color: gray;
+}
+
+.ui-icon-button--isDanger:hover {
+  color: red;
+}
+
+.ui-icon-button--isOk:hover {
+  color: green;
+}

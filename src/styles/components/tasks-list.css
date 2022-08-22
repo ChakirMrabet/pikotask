@@ -1,0 +1,30 @@
+.tasks-list {
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-main-family);
+}
+
+.tasks-list__item {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: var(--font-big);
+  border-bottom: 1px solid lightgray;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.tasks-list__item--isDone {
+  color: lightgray;
+}
+
+.tasks-list__form {
+  margin: 1rem 0 2rem;
+}
+
+.tasks-list__form__text {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: var(--font-big);
+}

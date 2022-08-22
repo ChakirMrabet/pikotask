@@ -1,0 +1,12 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 16px;
+}
+
+input,
+textarea {
+  outline: 0;
+}
