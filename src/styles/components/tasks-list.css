@@ -1,7 +1,22 @@
 .tasks-list {
   padding: 0;
+  overflow-y: auto;
   list-style: none;
   font-family: var(--font-main-family);
+  scrollbar-color: var(--scroll-bar-color) transparent;
+  scrollbar-width: thin;
+}
+
+.tasks-list::-webkit-scrollbar {
+  width: 5px;
+}
+
+.tasks-list::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.tasks-list::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-bar-color);
 }
 
 .tasks-list__item {
@@ -10,13 +25,15 @@
   margin-bottom: 0.5rem;
   padding-bottom: 0.5rem;
   font-size: var(--font-big);
-  border-bottom: 1px solid lightgray;
+  color: var(--list-item-color);
+  border-bottom: 1px solid var(--list-item-border-color);
   user-select: none;
   -webkit-user-select: none;
 }
 
 .tasks-list__item--isDone {
-  color: lightgray;
+  color: var(--list-item-done-color);
+  opacity: 0.4;
 }
 
 .tasks-list__form {
@@ -25,6 +42,14 @@
 
 .tasks-list__form__text {
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.75rem;
   font-size: var(--font-big);
+  color: var(--form-input-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+.tasks-list__form__text::placeholder{
+  opacity: 0.3;
 }

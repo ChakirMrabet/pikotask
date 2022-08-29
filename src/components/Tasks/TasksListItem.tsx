@@ -1,19 +1,22 @@
-import React, { useContext, MouseEvent } from "react";
+import React from "react";
 import { classNames } from "../../utils/classNames";
-import { TasksCtx } from "../../contexts/tasks.ctx";
+import { TasksConsumer } from "../../providers/tasks.provider";
 import { UiIconButton } from "../UI/UiIconButton.component";
 
 export interface ITasksListItemProps {
   id: string;
   text: string;
   done: boolean;
+  show: boolean;
 }
 
 export function TasksListItem(props: ITasksListItemProps) {
-  const { id, done } = props;
+  const { id, done, show } = props;
+
   const className = classNames({
     "tasks-list__item": true,
     "tasks-list__item--isDone": done,
+    hidden: done && show,
   });
 
   return (
@@ -31,18 +34,18 @@ interface IActionButtonsProps {
 
 function ActionButtons(props: IActionButtonsProps) {
   const { id, done } = props;
-  const tasksCtx = useContext(TasksCtx);
+  const tasksConsumer = TasksConsumer();
 
   function handleDelete() {
-    tasksCtx?.delete(id);
+    tasksConsumer?.delete(id);
   }
 
   function handleDone() {
-    tasksCtx?.done(id, true);
+    tasksConsumer?.done(id, true);
   }
 
   function handleUndo() {
-    tasksCtx?.done(id, false);
+    tasksConsumer?.done(id, false);
   }
 
   return (

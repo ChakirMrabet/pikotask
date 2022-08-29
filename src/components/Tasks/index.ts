@@ -1,3 +1,3 @@
-export * from "./TasksLists.component";
-export * from "./TasksListItem.component";
-export * from "./TasksToolbar.component";
+export * from "./TasksLists";
+export * from "./TasksListItem";
+export * from "./TasksNavbarMenu";

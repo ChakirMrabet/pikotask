@@ -1,10 +1,10 @@
-import React, { ChangeEvent, FormEvent, useContext, useState } from "react";
-import { TasksCtx } from "../../contexts/tasks.ctx";
+import React, { ChangeEvent, FormEvent, useState } from "react";
+import { TasksConsumer } from "../../providers/tasks.provider";
 
 export function TasksAddForm() {
   const [text, setText] = useState("");
 
-  const tasksCtx = useContext(TasksCtx);
+  const tasksConsumer = TasksConsumer();
 
   function handleTextChange(e: ChangeEvent) {
     const target = e.target as HTMLInputElement;
@@ -15,7 +15,7 @@ export function TasksAddForm() {
     e.preventDefault();
 
     if (text !== "") {
-      tasksCtx?.add(text);
+      tasksConsumer?.add(text);
       setText("");
     }
   }

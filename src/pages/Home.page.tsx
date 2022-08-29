@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { UiFrame, UiNavbar } from "../components/UI";
+import { useTheme } from "../providers/theme.provider";
+import { UiPage } from "../components/UI";
 import { Task } from "../models/Task";
 import { TasksList } from "../components/Tasks";
-import { TasksAddForm } from "../components/Tasks/TasksAddForm.component";
-import { TasksCtx } from "../contexts/tasks.ctx";
+import { TasksAddForm } from "../components/Tasks/TasksAddForm";
+import { TasksProvider } from "../providers/tasks.provider";
 import { TasksService } from "../services/Tasks.service";
-import { TasksToolbar } from "../components/Tasks";
+import { TasksNavbarMenu } from "../components/Tasks";
+
+import { useModal } from "../providers/modal.provider";
 
 export function HomePage(): JSX.Element {
   const [tasks, setTasks] = useState<Task[] | null>(null);
+  const [showDone, setShowDone] = useState<boolean>(true);
+  const { isDarkMode } = useTheme();
+
+  const modal = useModal();
 
   useEffect(() => {
     setTasks(TasksService.load());
@@ -24,12 +31,15 @@ export function HomePage(): JSX.Element {
 
   function handleDelete(id: string) {
     if (tasks) {
-      // TODO: replace with custom dialog
-      if (confirm("Are you sure you want to delete this task?")) {
-        const newTasks = tasks?.filter((task) => task.id !== id);
-        setTasks(newTasks);
-        TasksService.save(newTasks);
-      }
+      modal.show(
+        "confirm",
+        "Are you sure you want to delete this task?",
+        () => {
+          const newTasks = tasks?.filter((task) => task.id !== id);
+          setTasks(newTasks);
+          TasksService.save(newTasks);
+        }
+      );
     }
   }
 
@@ -47,36 +57,57 @@ export function HomePage(): JSX.Element {
   }
 
   function handleEmpty() {
-    if (confirm("Are you sure that you want to empty your task list?")) {
-      setTasks([]);
-      TasksService.save([]);
+    modal.show(
+      "confirm",
+      "Are you sure that you want to empty your task list?",
+      () => {
+        setTasks([]);
+        TasksService.save([]);
+      }
+    );
+  }
+
+  function getPending() {
+    if (tasks) {
+      return tasks.filter((task) => !task.done).length;
     }
+
+    return 0;
+  }
+
+  function handleToggleShowDone() {
+    setShowDone(!showDone);
   }
 
   if (!tasks) {
     return (
-      <UiFrame>
-        <UiNavbar left={<h1>PicoDesk!!</h1>} />
+      <UiPage>
         <p>Loading..</p>
-      </UiFrame>
+      </UiPage>
     );
   }
 
   return (
-    <TasksCtx.Provider
+    <TasksProvider
       value={{
         tasks,
+        showDone,
         add: handleAdd,
         delete: handleDelete,
         done: handleDone,
         empty: handleEmpty,
+        pending: getPending,
+        toggleShowDone: handleToggleShowDone,
       }}
     >
-      <UiFrame>
-        <UiNavbar left={<h1>PicoDesk!!</h1>} right={<TasksToolbar />} />
+      <UiPage
+        title="Your tasks"
+        darkMode={isDarkMode}
+        menu={<TasksNavbarMenu />}
+      >
         <TasksAddForm />
         <TasksList />
-      </UiFrame>
-    </TasksCtx.Provider>
+      </UiPage>
+    </TasksProvider>
   );
 }

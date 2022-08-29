@@ -1,13 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@100;400&display=swap");
 
 @font-face {
   font-family: "Material Icons";
   font-style: normal;
-  src: url("https://fonts.gstatic.com/s/materialicons/v138/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2") format('woff2');
+  src: url("https://fonts.gstatic.com/s/materialicons/v138/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2")
+    format("woff2");
 }
 
 :root {
-  --font-main-family: "Roboto", sans-serif;
+  --font-main-family: "Ubuntu", sans-serif;
   --font-xlarge: 2.5rem;
   --font-large: 2rem;
   --font-big: 1.25rem;
@@ -18,4 +19,5 @@
 h1 {
   font-family: var(--font-main-family);
   font-size: var(--font-xlarge);
+  color: var(--primary-color);
 }

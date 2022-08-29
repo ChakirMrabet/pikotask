@@ -1,6 +1,6 @@
 .ui-icon-button {
   font-family: "Material Icons";
-  color: lightgray;
+  color: var(--primary-color);
 }
 
 .ui-icon-button:link,
@@ -10,7 +10,7 @@
 }
 
 .ui-icon-button--isDefault:hover {
-  color: gray;
+  color: var(--secondary-color);
 }
 
 .ui-icon-button--isDanger:hover {

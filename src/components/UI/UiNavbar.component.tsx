@@ -9,7 +9,7 @@ export function UiNavbar(props: IUiNavbar) {
   const { left, right } = props;
 
   return (
-    <nav className="ui-nav">
+    <nav className="ui-navbar">
       {left}
       {right}
     </nav>

@@ -3,10 +3,22 @@
 @import "./variables/reset.css";
 @import "./variables/base.css";
 @import "./variables/typography.css";
+@import "./variables/layout.css";
+@import "./variables/colors.css";
 
 /* Components */
 @import "./components/ui-frame.css";
 @import "./components/ui-navbar.css";
 @import "./components/ui-icon-button.css";
 @import "./components/tasks-list.css";
-@import "./components/tasks-toolbar.css";
+@import "./components/tasks-navbar-menu.css";
+@import "./components/modal-dialog.css";
+@import "./components/ui-button.css";
+
+html {
+  background-color: var(--background-color);
+}
+
+body {
+  overflow: hidden;
+}

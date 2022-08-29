@@ -1,0 +1,15 @@
+.tasks-navbar-menu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+}
+
+.tasks-navbar-menu__stat {
+  font-family: var(--font-main-family);
+  font-size: var(--font-large);
+}
+
+.tasks-navbar-menu__action {
+  font-size: 2rem;
+}

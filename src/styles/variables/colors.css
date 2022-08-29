@@ -1,0 +1,39 @@
+html {
+  --background-color: #fdd935;
+  --primary-color: black;
+  --secondary-color: #f92c85;
+
+  --list-item-color: black;
+  --list-item-done-color: black;
+  --list-item-border-color: #eabd10;
+
+  --form-input-color: black;
+
+  --scroll-bar-color: black;
+
+  --modal-background-color: black;
+  --modal-color: white;
+
+  --button-color: #fdd935;
+  --button-background-color: black;
+}
+
+html.dark {
+  --background-color: black;
+  --primary-color: #fdd935;
+  --secondary-color: #f92c85;
+
+  --list-item-color: #ddd7d7;
+  --list-item-done-color: #ddd7d7;
+  --list-item-border-color: #1a1801;
+
+  --form-input-color: white;
+
+  --scroll-bar-color: #fdd935;
+
+  --modal-background-color: #fdd935;
+  --modal-color: black;
+
+  --button-color: black;
+  --button-background-color: #fdd935;
+}
