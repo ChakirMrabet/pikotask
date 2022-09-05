@@ -3,7 +3,7 @@ import { UiFrame } from "./UiFrame.component";
 import { UiNavbar } from "./UiNavbar.component";
 
 // TODO: move this to a configuration provider
-const APP_NAME = "PikoDesk";
+const APP_NAME = "PikoTask";
 
 export interface IUiPageProps {
   title?: string;

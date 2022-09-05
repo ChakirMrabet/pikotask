@@ -5,19 +5,42 @@
   "keywords": [],
   "author": "Chakir Mrabet, 2022",
   "license": "ISC",
-  "main": "index.js",
   "scripts": {
     "dev": "parcel ./src/index.html",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "parcel build ./src/index.html && npm run publish",
+    "publish": "surge --domain https://picotask-cmrabet.surge.sh dist/"
   },
   "dependencies": {
+    "install": "^0.13.0",
+    "npm": "^8.19.1",
     "parcel": "^2.7.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "remove": "^0.1.5",
+    "workbox-expiration": "^6.5.4",
+    "workbox-precaching": "^6.5.4",
+    "workbox-routing": "^6.5.4",
+    "workbox-strategies": "^6.5.4"
   },
   "devDependencies": {
+    "@parcel/config-default": "^2.7.0",
+    "@parcel/core": "^2.7.0",
+    "@parcel/packager-raw-url": "^2.7.0",
+    "@parcel/transformer-webmanifest": "^2.7.0",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
-    "process": "^0.11.10"
+    "assert": "^2.0.0",
+    "constants-browserify": "^1.0.0",
+    "crypto-browserify": "^3.12.0",
+    "events": "^3.3.0",
+    "os-browserify": "^0.3.0",
+    "path-browserify": "^1.0.1",
+    "process": "^0.11.10",
+    "querystring-es3": "^0.2.1",
+    "stream-browserify": "^3.0.0",
+    "url": "^0.11.0",
+    "util": "^0.12.4",
+    "workbox-cli": "^6.5.4"
   }
 }
